@@ -148,17 +148,31 @@ newsletter:
 # Collections
 # -----------------------------------------------------------------------------
 
+
 collections:
   books:
     output: false
-  news: false
+  news:
     defaults:
       layout: post
     output: false
   projects:
     output: true
-  teachings: false
+  teachings:
     output: false
+
+
+# collections:
+#   books:
+#     output: false
+#   news: false
+#     defaults:
+#       layout: post
+#     output: false
+#   projects:
+#     output: true
+#   teachings: false
+#     output: false
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
