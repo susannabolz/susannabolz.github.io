@@ -1,9 +1,12 @@
----
-layout: default
+<!-- ---
+layout: talks
 title: talks
 permalink: /talks/
+cv_format: rendercv
 nav: true
 nav_order: 3
+toc:
+  sidebar: left
 ---
 
 
@@ -28,4 +31,4 @@ Talk 5
 
 Talk 6 
 
-
+ -->

@@ -1,0 +1,49 @@
+cv:
+  summary: In my research I’m focusing on regional determinants of green technologies diffusion in Germany. I want to understand which role local authorities play in accelerating decarbonization processes. Primarily working with quantitative and text data, I strive for creating new research datasets and making use of public registries.
+
+
+  sections:
+    Education:
+      - institution: University of Bremen
+        location: Bremen, Germany
+        area: Economics
+        studyType: Dr. rer. pol.
+        start_date: 2021
+        end_date: today
+        
+      - institution: University of Cologne
+        location: Cologne, Germany
+        studyType: M.Sc. Economics
+        start_date: 2016
+        end_date: 2020
+        
+      - institution: University of Heidelberg
+        location: Heidelberg, Germany
+        studyType: B.Sc. Economics
+        start_date: 2013
+        end_date: 2016
+
+      - institution: University of Heidelberg
+        location: Heidelberg, Germany
+        studyType: B.A. Sociology
+        start_date: 2011
+        end_date: 2015
+
+
+    Experience:
+      - company: University of Bremen
+        position: Research Associate
+        location: Bremen, Germany
+        start_date: 2024
+        end_date: today
+        summary: Working for the BMFTR-funded project "hyBit"
+
+      - company: University of Bremen
+        position: Research Associate
+        location: Bremen, Germany
+        start_date: 2021
+        end_date: 2024
+        summary: Working for the BMBF-funded project "hyTracks"
+
+
+

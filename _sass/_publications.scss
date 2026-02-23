@@ -11,23 +11,23 @@
     color: var(--global-theme-color);
     font-size: 2rem;
     text-align: center;
-    margin-top: 0em;
-    margin-bottom: 0em;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 
   h2 {
-    margin-bottom: 0rem;
+    margin-bottom: 1rem;
 
     span {
-      font-size: 0rem;
+      font-size: 1.5rem;
     }
   }
 
   h2.bibliography {
     color: var(--global-divider-color);
     border-top: 1px solid var(--global-divider-color);
-    padding-top: 0rem;
-    margin-top: 0rem;
+    padding-top: 1rem;
+    margin-top: 2rem;
     text-align: left;
   }
 

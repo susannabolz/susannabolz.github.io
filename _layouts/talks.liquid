@@ -1,0 +1,406 @@
+---
+layout: default
+---
+
+{% comment %}
+  Unified talks layout that handles both Rendertalks (YAML) and JSONtalks (JSON) formats
+  - If page.talks_format is set, it determines which format to render:
+    - 'rendertalks': Load and render only Rendertalks data (site.data.talks.talks)
+    - 'jsontalks': Load and render only JSONtalks data (site.data.talks)
+  - If page.talks_format is not set, the legacy behavior applies:
+    - Rendertalks data is in site.data.talks.talks
+    - JSONtalks data is in site.data.talks
+    - Rendertalks is prioritized if both exist
+  Both formats use the same unified rendering includes for consistent output
+{% endcomment %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ page.title }}
+      {% if page.talks_pdf %}
+        <a
+          {% if page.talks_pdf contains '://' %}
+            href="{{ page.talks_pdf }}"
+          {% else %}
+            href="{{ page.talks_pdf | relative_url }}"
+          {% endif %}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="float-right"
+        >
+          <i class="fa-solid fa-file-pdf"></i>
+        </a>
+      {% endif %}
+    </h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <article>
+    <div class="talks">
+      {% comment %} Determine which talks format to render {% endcomment %}
+      {% assign render_rendertalks = false %}
+      {% assign render_jsontalks = false %}
+
+      {% if page.talks_format == 'rendertalks' %}
+        {% assign render_rendertalks = true %}
+      {% elsif page.talks_format == 'jsontalks' %}
+        {% assign render_jsontalks = true %}
+      {% else %}
+        {% comment %} Legacy behavior: Rendertalks takes priority if both exist {% endcomment %}
+        {% if site.data.talks and site.data.talks.talks %}
+          {% assign render_rendertalks = true %}
+        {% elsif site.data.talks %}
+          {% assign render_jsontalks = true %}
+        {% endif %}
+      {% endif %}
+
+      {% if render_rendertalks and site.data.talks and site.data.talks.talks %}
+        {% comment %} Rendertalks format {% endcomment %}
+        {% assign talks = site.data.talks.talks %}
+
+        <!-- Header/Contact Information -->
+        {% if talks.name or talks.label or talks.location or talks.email or talks.phone or talks.website %}
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Contact Information</h3>
+            <table class="table table-talks table-sm table-borderless">
+              {% if talks.name %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Name</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ talks.name }}</td>
+                </tr>
+              {% endif %}
+              {% if talks.label %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Professional Title</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ talks.label }}</td>
+                </tr>
+              {% endif %}
+              {% if talks.email %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Email</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ talks.email }}</td>
+                </tr>
+              {% endif %}
+              {% if talks.phone %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Phone</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ talks.phone }}</td>
+                </tr>
+              {% endif %}
+              {% if talks.address %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Location</b></td>
+                  <td class="p-1 pl-2 font-weight-light">
+                    {% if talks.address.street %}{{ talks.address.street }}, {% endif %}
+                    {% if talks.address.city %}{{ talks.address.city }}, {% endif %}
+                    {% if talks.address.region %}{{ talks.address.region }} {% endif %}
+                    {% if talks.address.postalCode %}{{ talks.address.postalCode }}{% endif %}
+                  </td>
+                </tr>
+              {% endif %}
+              {% if talks.website %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Website</b></td>
+                  <td class="p-1 pl-2 font-weight-light">
+                    <a href="{{ talks.website }}" target="_blank">{{ talks.website }}</a>
+                  </td>
+                </tr>
+              {% endif %}
+            </table>
+          </div>
+        {% endif %}
+
+        <!-- Summary -->
+        {% if talks.summary %}
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Professional Summary</h3>
+            <p>{{ talks.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+          </div>
+        {% endif %}
+
+        <!-- Rendertalks Sections - Merge Experience and Volunteer -->
+        {% comment %} First, combine Experience and Volunteer entries {% endcomment %}
+        {% assign empty_array = '' | split: ',' %}
+        {% assign exp = talks.sections.Experience | default: empty_array %}
+        {% assign vol = talks.sections.Volunteer | default: empty_array %}
+        {% assign combined_experience = exp | concat: vol %}
+        {% if combined_experience.size > 0 %}
+          <a class="anchor" id="experience"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Experience</h3>
+            <div>
+              {% assign entries = combined_experience %}
+              {% include talks/experience.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% comment %} Now render all other sections except Experience and Volunteer {% endcomment %}
+        {% for section_pair in talks.sections %}
+          {% assign section_title = section_pair[0] %}
+          {% assign section_entries = section_pair[1] %}
+
+          {% comment %} Skip Experience and Volunteer as we've already processed them combined {% endcomment %}
+          {% if section_title == 'Experience' or section_title == 'Volunteer' %}
+            {% continue %}
+          {% endif %}
+
+          <a class="anchor" id="{{ section_title | slugify }}"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">{{ section_title }}</h3>
+            <div>
+              {% if section_title == 'Education' %}
+                {% assign entries = section_entries %}
+                {% include talks/education.liquid %}
+              {% elsif section_title == 'Awards' or section_title == 'Honors and Awards' %}
+                {% assign entries = section_entries %}
+                {% include talks/awards.liquid %}
+              {% elsif section_title == 'Publications' %}
+                {% assign entries = section_entries %}
+                {% include talks/publications.liquid %}
+              {% elsif section_title == 'Skills' %}
+                {% assign entries = section_entries %}
+                {% include talks/skills.liquid %}
+              {% elsif section_title == 'Languages' %}
+                {% assign entries = section_entries %}
+                {% include talks/languages.liquid %}
+              {% elsif section_title == 'Interests' or section_title == 'Academic Interests' %}
+                {% assign entries = section_entries %}
+                {% include talks/interests.liquid %}
+              {% elsif section_title == 'Certificates' %}
+                {% assign entries = section_entries %}
+                {% include talks/certificates.liquid %}
+              {% elsif section_title == 'Projects' or section_title == 'Open Source Projects' %}
+                {% assign entries = section_entries %}
+                {% include talks/projects.liquid %}
+              {% elsif section_title == 'References' %}
+                {% assign entries = section_entries %}
+                {% include talks/references.liquid %}
+              {% else %}
+                <!-- Generic section -->
+                {% for entry in section_entries %}
+                  {% if entry.bullet %}
+                    <ul class="card-text font-weight-light list-group list-group-flush">
+                      <li class="list-group-item">{{ entry.bullet | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                    </ul>
+                  {% elsif entry.label %}
+                    <div class="card-text font-weight-light">
+                      <strong>{{ entry.label }}:</strong> {{ entry.details }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+
+      {% elsif render_jsontalks and site.data.talks %}
+        {% comment %} JSONtalks format {% endcomment %}
+
+        <!-- Contact Information -->
+        {% if site.data.talks.basics %}
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Contact Information</h3>
+            {% assign basics = site.data.talks.basics %}
+            <table class="table table-talks table-sm table-borderless">
+              {% if basics.name %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Name</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ basics.name }}</td>
+                </tr>
+              {% endif %}
+              {% if basics.label %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Professional Title</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ basics.label }}</td>
+                </tr>
+              {% endif %}
+              {% if basics.email %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Email</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ basics.email }}</td>
+                </tr>
+              {% endif %}
+              {% if basics.phone %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Phone</b></td>
+                  <td class="p-1 pl-2 font-weight-light">{{ basics.phone }}</td>
+                </tr>
+              {% endif %}
+              {% if basics.location %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Location</b></td>
+                  <td class="p-1 pl-2 font-weight-light">
+                    {% if basics.location.address %}{{ basics.location.address }}, {% endif %}
+                    {% if basics.location.city %}{{ basics.location.city }}, {% endif %}
+                    {% if basics.location.region %}{{ basics.location.region }} {% endif %}
+                    {% if basics.location.postalCode %}{{ basics.location.postalCode }}{% endif %}
+                  </td>
+                </tr>
+              {% endif %}
+              {% if basics.url %}
+                <tr>
+                  <td class="p-1 pr-2 font-weight-bold"><b>Website</b></td>
+                  <td class="p-1 pl-2 font-weight-light">
+                    <a href="{{ basics.url }}" target="_blank">{{ basics.url }}</a>
+                  </td>
+                </tr>
+              {% endif %}
+            </table>
+          </div>
+        {% endif %}
+
+        <!-- Summary -->
+        {% if site.data.talks.basics.summary %}
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Professional Summary</h3>
+            <p>{{ site.data.talks.basics.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+          </div>
+        {% endif %}
+
+        <!-- JSONtalks Sections - Merge work and volunteer into Experience -->
+        {% assign empty_array = '' | split: ',' %}
+        {% assign work = site.data.talks.work | default: empty_array %}
+        {% assign vol = site.data.talks.volunteer | default: empty_array %}
+        {% assign combined_experience = work | concat: vol %}
+        {% if combined_experience.size > 0 %}
+          <a class="anchor" id="experience"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Experience</h3>
+            <div>
+              {% assign entries = combined_experience %}
+              {% include talks/experience.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Education -->
+        {% if site.data.talks.education.size > 0 %}
+          <a class="anchor" id="education"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Education</h3>
+            <div>
+              {% assign entries = site.data.talks.education %}
+              {% include talks/education.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Awards -->
+        {% if site.data.talks.awards.size > 0 %}
+          <a class="anchor" id="awards"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Awards</h3>
+            <div>
+              {% assign entries = site.data.talks.awards %}
+              {% include talks/awards.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Publications -->
+        {% if site.data.talks.publications.size > 0 %}
+          <a class="anchor" id="publications"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">publications</h3>
+            <div>
+              {% assign entries = site.data.talks.publications %}
+              {% include talks/publications.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Conferences and Workshop -->
+                {% if site.data.talks.conferences.size > 0 %}
+                  <a class="anchor" id="conferences"></a>
+                  <div class="card mt-3 p-3">
+                    <h3 class="card-title font-weight-medium">Conferences and Workshops</h3>
+                    <div>
+                      {% assign entries = site.data.talks.conferences %}
+                      {% include talks/publications.liquid %}
+                    </div>
+                  </div>
+                {% endif %}
+
+
+        <!-- Skills -->
+        {% if site.data.talks.skills.size > 0 %}
+          <a class="anchor" id="skills"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Skills</h3>
+            <div>
+              {% assign entries = site.data.talks.skills %}
+              {% include talks/skills.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Languages -->
+        {% if site.data.talks.languages.size > 0 %}
+          <a class="anchor" id="languages"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Languages</h3>
+            <div>
+              {% assign entries = site.data.talks.languages %}
+              {% include talks/languages.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Interests -->
+        {% if site.data.talks.interests.size > 0 %}
+          <a class="anchor" id="interests"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Interests</h3>
+            <div>
+              {% assign entries = site.data.talks.interests %}
+              {% include talks/interests.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Certificates -->
+        {% if site.data.talks.certificates.size > 0 %}
+          <a class="anchor" id="certificates"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Certificates</h3>
+            <div>
+              {% assign entries = site.data.talks.certificates %}
+              {% include talks/certificates.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Projects -->
+        {% if site.data.talks.projects.size > 0 %}
+          <a class="anchor" id="projects"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">Projects</h3>
+            <div>
+              {% assign entries = site.data.talks.projects %}
+              {% include talks/projects.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- References -->
+        {% if site.data.talks.references.size > 0 %}
+          <a class="anchor" id="references"></a>
+          <div class="card mt-3 p-3">
+            <h3 class="card-title font-weight-medium">References</h3>
+            <div>
+              {% assign entries = site.data.talks.references %}
+              {% include talks/references.liquid %}
+            </div>
+          </div>
+        {% endif %}
+
+      {% else %}
+        <p> </p>
+      {% endif %}
+    </div>
+  </article>
+</div>
