@@ -1,23 +1,13 @@
 ---
 layout: page
-title: Regional climate policy data
+title: Regional climate policy
+img: assets/img/IMG_4107.jpg
 importance: 3
 related_publications: true
 category: data
 ---
 
 
-Here I write something about my LEA dataset and how (not) to find other regional climate policy data.
+# Local energy agencies
 
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/mastr.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/euets.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/cordis.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+For my paper that investigates the expansion of solar PV in Germany {% cite bolz2026_do %}, I collected a dataset on local energy agencies. Local energy agencies have been established in Germany since the early 1990s by districts. You can access and download the data on [Zenodo](https://zenodo.org/records/18633173).

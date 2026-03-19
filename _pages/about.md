@@ -27,8 +27,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-In my research I'm focusing on regional determinants of green technologies diffusion in Germany. I want to understand which role local authorities play in accelerating decarbonization processes. Primarily working with quantitative and text data, I strive for discover and exploit new data sources and use public registries for research. 
+In my research, I'm focusing on regional determinants of the diffusion of green technologies in Germany. I want to understand the role local authorities play in accelerating decarbonization. Primarily working with quantitative and text data, I strive to discover and exploit new data sources and use public registries for research. 
 
 Check out my [LinkedIn](https://www.linkedin.com/in/susanna-bolz-468378228/), [ORCID](https://orcid.org/0000-0002-3278-5629), [GoogleScholar](https://scholar.google.de/citations?user=CfufX-4AAAAJ&hl=de&oi=ao) and [GitHub](https://github.com/susannabolz) profiles.
 
-If you want to get in contact, best is to write a mail to sbolz[at]uni-bremen.de
+If you want to get in contact, write an email to sbolz[at]uni-bremen.de
