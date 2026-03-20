@@ -15,13 +15,25 @@ nav_order: 2
 </div>
 
 <!-- Working Papers -->
+<br>
 ## working papers
 
 <div class="working-papers publications">
 {% bibliography -f papers --query @techreport %}
 </div>
 
+<!-- Other Work -->
+<br>
+## other work
+
+<div class="working-papers publications">
+{% bibliography -f papers --query @dataset %}
+</div>
+
+
+
 <!-- Work in Progress -->
+<br>
 ## work in progress
 
 <div class="in-progress publications">
