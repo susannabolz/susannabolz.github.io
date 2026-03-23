@@ -38,4 +38,5 @@ nav_order: 2
 
 <div class="in-progress publications">
 {% bibliography -f papers --query @document %}
+{% bibliography -f papers --query @book %}
 </div>
