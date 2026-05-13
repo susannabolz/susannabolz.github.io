@@ -1,7 +1,6 @@
 cv:
   summary: In my research I’m focusing on regional determinants of green technologies diffusion in Germany. I want to understand which role local authorities play in accelerating decarbonization processes. Primarily working with quantitative and text data, I strive for creating new research datasets and making use of public registries.
 
-
   sections:
     Education:
       - institution: University of Bremen
@@ -16,26 +15,26 @@ cv:
           - Organizing multiple scientific workshops
           - Founding an interdisciplinary PhD network at the University of Bremen
           - Professional development in R, Git/GitHub, Text Mining and NLP
-        
+
       - institution: University of Cologne
         location: Cologne, Germany
         studyType: M.Sc. Economics
         start_date: 2016
         end_date: 2020
         score: 1.7
-        highlights: 
+        highlights:
           - PhD level courses in Microeconomics, Macroeconomics, and Econometrics
           - Thesis analysing recent reforms in the UK welfare system
-          - Self-organized reading group on (Post)Keynesian theory 
+          - Self-organized reading group on (Post)Keynesian theory
           - Participated twice in the Summer Academy of the Network for Plural Economics
-        
+
       - institution: University of Heidelberg
         location: Heidelberg, Germany
         studyType: B.Sc. Economics
         start_date: 2013
         end_date: 2016
         score: 1.6
-        highlights: 
+        highlights:
           - Thesis analyzing the allocation of international aid in the context of corruption
           - Coursework at the University of Mannheim
           - Courses focusing on the Macroeconomics of International Organizations, Financial Crises, and Labor Market Policies
@@ -47,11 +46,10 @@ cv:
         start_date: 2011
         end_date: 2015
         score: 1.4
-        highlights: 
+        highlights:
           - Thesis analyzing how the socio-economic background shapes school choice of adolescents using the SOEP
           - Research courses teaching SAS and qualitative interviews
           - Interdisciplinary courses in social psychology and philosophy
-
 
     Experience:
       - company: University of Bremen
@@ -61,20 +59,19 @@ cv:
         end_date: today
         highlights:
           - Stakeholder workshops to disseminate research results
-          - Supervision of student assistants and bachelor theses 
+          - Supervision of student assistants and bachelor theses
 
       - company: University of Bremen
-        position: Research Associate, BMBF-funded project "hyTracks" 
+        position: Research Associate, BMBF-funded project "hyTracks"
         location: Bremen, Germany
         start_date: 2021
         end_date: 2024
         highlights:
-         - Stakeholder workshops to disseminate research results
-         - Working in an interdisciplinary team
-         - Developing hydrogen scenarios
-         - Assessing prospect of a hydrogen ramp-up in Bremen 
-         - Supervision of student assistants and bachelor theses 
-
+          - Stakeholder workshops to disseminate research results
+          - Working in an interdisciplinary team
+          - Developing hydrogen scenarios
+          - Assessing prospect of a hydrogen ramp-up in Bremen
+          - Supervision of student assistants and bachelor theses
 
     # Skills:
     #   - name: R
@@ -83,8 +80,8 @@ cv:
     #   - name: Python
     #     level: Novice
 
-    #   - name: 
-        
+    #   - name:
+
     Languages:
       - name: German
         summary: Native speaker
@@ -96,12 +93,6 @@ cv:
     #   - name: Physics
     #     icon: fa-solid fa-tag
     #     keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-
-
-
-
-
 
 #  social_networks:
 #     - network: X

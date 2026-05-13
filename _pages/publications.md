@@ -6,8 +6,8 @@ nav: true
 nav_order: 2
 ---
 
-
 <!-- Published Papers -->
+
 ## peer-reviewed
 
 <div class="peer-reviewed publications">
@@ -29,8 +29,6 @@ nav_order: 2
 <div class="working-papers publications">
 {% bibliography -f papers --query @dataset %}
 </div>
-
-
 
 <!-- Work in Progress -->
 <br>
