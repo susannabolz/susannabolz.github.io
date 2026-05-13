@@ -29,6 +29,5 @@ latest_posts:
 
 I'm an economist researching the regional determinants of the diffusion of green technologies in Germany. I want to understand the role local authorities play in accelerating decarbonization. Primarily working with quantitative and text data, I strive to discover and exploit new data sources and use public registries for research. I'm currently working on the BMFTR-funded project [hyBit](https://hybit.org/de).
 
-Check out my [LinkedIn](https://www.linkedin.com/in/susanna-bolz-468378228/), [ORCID](https://orcid.org/0000-0002-3278-5629) and [GoogleScholar](https://scholar.google.de/citations?user=CfufX-4AAAAJ&hl=de&oi=ao) profiles.
+If you want to get in contact, write an email to sbolz[at]uni-bremen.de or connect with me on [LinkedIn](https://www.linkedin.com/in/susanna-bolz-468378228/). Further professional profiles are available on [GitHub](https://github.com/susannabolz), [ORCID](https://orcid.org/0000-0002-3278-5629) and [Google Scholar](https://scholar.google.de/citations?user=CfufX-4AAAAJ&hl=de&oi=ao).
 
-If you want to get in contact, write an email to sbolz[at]uni-bremen.de
