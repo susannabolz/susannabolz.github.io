@@ -1,6 +1,7 @@
 ---
 layout: default
 title: personal
+description: I share some personal information about me.
 permalink: /personal/
 nav: true
 nav_order: 6

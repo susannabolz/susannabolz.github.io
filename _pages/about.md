@@ -1,6 +1,7 @@
 ---
 layout: about
 title: about
+description: Academic website of Susanna bolz, economist working on local climate policies fostering the energy transition and hydrogen in Germany.
 permalink: /
 subtitle: # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 

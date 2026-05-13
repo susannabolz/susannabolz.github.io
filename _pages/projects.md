@@ -1,6 +1,7 @@
 ---
 layout: page
 title: professional passions
+description: I'm passionate about local climate policies, data and public registries.
 permalink: /projects/
 nav: true
 nav_order: 4
@@ -9,9 +10,8 @@ horizontal: false
 ---
 
 I discovered my passion for data already as a student assistant. I was part of a team conducting a survey among pupils for a DFG-funded project. I always enjoyed data-related tasks such as discovering and researching data sources as well as creating datasets the most.
-
-In my scientific work I could build upon that passion.
-In most of my research projects I make use of publicly available registries or official statistics.
+In my scientific work I could build upon that passion: in most of my research projects I make use of publicly available registries or official statistics.
+See my [Publications](./publications/) for the scientific output of that work. On these pages I will share data sources and insights.
 
 <!-- pages/projects.md -->
 <div class="projects">
