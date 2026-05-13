@@ -11,14 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-publications",
           title: "publications",
-          description: "",
+          description: "Complete list of peer-reviewed publications, working papers and work in progress.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
           },
         },{id: "nav-professional-passions",
           title: "professional passions",
-          description: "",
+          description: "I&#39;m passionate about local climate policies, data and public registries.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "nav-personal",
           title: "personal",
-          description: "",
+          description: "I share some personal information about me.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/personal/";
