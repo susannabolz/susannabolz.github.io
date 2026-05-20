@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Complete list of peer-reviewed publications, working papers and work in progress.
+description: Complete list of peer-reviewed publications, working papers, other work, and work in progress projects.
 nav: true
 nav_order: 2
 ---
