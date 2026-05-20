@@ -11,14 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-publications",
           title: "publications",
-          description: "Complete list of peer-reviewed publications, working papers and work in progress.",
+          description: "Complete list of peer-reviewed publications, working papers, other work, and work in progress projects.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
           },
         },{id: "nav-professional-passions",
           title: "professional passions",
-          description: "I&#39;m passionate about local climate policies, data and public registries.",
+          description: "I&#39;m passionate about data, public registries, and (local) climate policies.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -37,8 +37,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/personal/";
           },
-        },{id: "projects-regional-climate-policy",
-          title: 'Regional climate policy',
+        },{id: "projects-climate-policies",
+          title: 'Climate policies',
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/climatepolicy/";
