@@ -7,20 +7,14 @@ related_publications: true
 category: data
 ---
 
-
-
-
 <br>
 ## Overview of national climate policies in Europe
 This [policy database](https://pam.apps.eea.europa.eu/) is maintained by the European Energy Agency. EU member states have to report policies and measures aiming at reducing emissions. For each measure, information on the target sector, emission affected, and policy instrument is available.
-
-
 
 <br>
 ## EU-ETS
 The EU-ETS is the central European market-based instrument for carbon emission reduction.
 Jan Abrell prepared and published EU-ETS transaction data to make them easily accessible for investigating the effects of a cap-and-trade policy. I use these [EU-ETS data](https://www.euets.info/) to measure regulatory pressure and investigate whether it affects how sustainability reports are written {% cite bolz2026_sustainability %}.
-
 
 <br>
 ## One example of a local climate policy in Germany
