@@ -78,7 +78,7 @@ cv:
         level: Advanced
 
       - name: STATA
-	level: Intermediate
+        level: Intermediate
 
       - name: Python
         level: Basic
