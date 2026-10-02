@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-description: Academic website of Susanna bolz, economist working on local climate policies fostering the energy transition and hydrogen in Germany.
+description: Website of Susanna bolz, economist working on local climate policies fostering the energy transition and hydrogen in Germany.
 permalink: /
 subtitle: # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
@@ -28,6 +28,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm an economist researching the regional determinants of the diffusion of green technologies in Germany. I want to understand the role local authorities play in accelerating decarbonization. Primarily working with quantitative and text data, I strive to discover and exploit new data sources and use public registries for research. I'm currently working on the BMFTR-funded project [hyBit](https://hybit.org/de).
+I'm an economist interested in the diffusion of green technologies in Germany and how local, state-level and national can foster decarbonization. I am proficient in using a variety of data sources and quantitative methods, including causal designs and the application of large language models. For an overview of my academic publications, see my profiles on [GitHub](https://github.com/susannabolz), [ORCID](https://orcid.org/0000-0002-3278-5629) and [Google Scholar](https://scholar.google.de/citations?user=CfufX-4AAAAJ&hl=de&oi=ao). I worked on the BMFTR-funded projects [hyBit](https://hybit.org/de) and hyTracks and am currently finishing my PhD in Economics at the University of Bremen.
 
-If you want to get in contact, write an email to sbolz[at]uni-bremen.de or connect with me on [LinkedIn](https://www.linkedin.com/in/susanna-bolz-468378228/). Further professional profiles are available on [GitHub](https://github.com/susannabolz), [ORCID](https://orcid.org/0000-0002-3278-5629) and [Google Scholar](https://scholar.google.de/citations?user=CfufX-4AAAAJ&hl=de&oi=ao).
+If you want to get in contact, write an email to sbolz[at]uni-bremen.de or connect with me on [LinkedIn](https://www.linkedin.com/in/susanna-bolz-468378228/).
